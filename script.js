@@ -17,7 +17,37 @@
 // Suerte!
 
 window.addEventListener('load',onLoad);
-
+var arrayUser = [];
+var arrayFilter = [];
 function onLoad(){
-  console.log('hi')
+  createUsers("usuario1", "spain", 199, true);
+  createUsers("usuario2", "france", 0, false);
+  createUsers("usuario3", "spain", 537, false);
+  createUsers("usuario4", "italy", 1004, true);
+  createUsers("usuario5", "spain", 250, false);
+  createUsers("usuario6", "ireland", 799, true);
+  createUsers("usuario7", "spain", 3345, false);
+
+  console.log(arrayUser);
+
+  filterUsers(arrayUser);
+  console.log(arrayFilter);
+}
+function createUsers (name, country, money, premiumAccount){
+  var user = new Object();
+  user.name= name;
+  user.country = country;
+  user.money = money;
+  user.premiumAccount = premiumAccount;
+  arrayUser.push(user);
+}
+
+function filterUsers(array){
+  var obj;
+  for(i=0; i<array.length;i++){
+    obj=array[i];
+    if(obj.country == "spain" && obj.money>200){
+      arrayFilter.push(obj);
+    }
+  }
 }
